@@ -1407,7 +1407,10 @@ class _MatchHubPageState extends State<MatchHubPage> {
     final sideBIds = <String>[];
 
     if (_sideA1 == null || _sideB1 == null) {
-      _showSnackBar(context, 'Please choose at least one player for each side.');
+      _showSnackBar(
+        context,
+        'Please choose at least one player for each side.',
+      );
       return;
     }
 
@@ -1416,7 +1419,10 @@ class _MatchHubPageState extends State<MatchHubPage> {
 
     if (_format == MatchFormat.doubles) {
       if (_sideA2 == null || _sideB2 == null) {
-        _showSnackBar(context, 'Please choose doubles partners for both sides.');
+        _showSnackBar(
+          context,
+          'Please choose doubles partners for both sides.',
+        );
         return;
       }
       sideAIds.add(_sideA2!);
