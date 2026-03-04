@@ -254,8 +254,11 @@ class _AuthScreenState extends State<AuthScreen> {
   Widget _buildPublicWebsiteBody(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final topPlayers = widget.store.players.take(5).toList();
+    final hasFullPageBackground =
+        _selectedPublicPage == PublicSitePage.home ||
+        _selectedPublicPage == PublicSitePage.features;
 
-    return SingleChildScrollView(
+    final content = SingleChildScrollView(
       child: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 1120),
@@ -308,6 +311,24 @@ class _AuthScreenState extends State<AuthScreen> {
           ),
         ),
       ),
+    );
+
+    if (!hasFullPageBackground) {
+      return content;
+    }
+
+    return Stack(
+      children: [
+        Positioned.fill(
+          child: Image.asset(
+            'assets/images/badminton.png',
+            fit: BoxFit.cover,
+            alignment: Alignment.center,
+          ),
+        ),
+        const Positioned.fill(child: ColoredBox(color: Color(0x66000000))),
+        content,
+      ],
     );
   }
 
@@ -381,7 +402,12 @@ class _AuthScreenState extends State<AuthScreen> {
       key: const ValueKey(PublicSitePage.features),
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Features', style: Theme.of(context).textTheme.headlineSmall),
+        Text(
+          'Features',
+          style: Theme.of(
+            context,
+          ).textTheme.headlineSmall?.copyWith(color: Colors.white),
+        ),
         const SizedBox(height: 10),
         Wrap(
           spacing: 12,

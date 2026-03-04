@@ -601,7 +601,7 @@ class AirShuttleStore extends ChangeNotifier {
         id: 'player-olivia',
         email: 'olivia@airshuttle.app',
         password: 'pass123',
-        fullName: 'Olivia Park',
+        fullName: 'Andre Wang ',
         school: teamRavens.school,
         teamId: teamRavens.id,
         role: UserRole.player,
@@ -612,7 +612,7 @@ class AirShuttleStore extends ChangeNotifier {
         rating: 9.0,
         reliability: 97,
         wins: 82,
-        losses: 18,
+        losses: 994,
         createdAt: DateTime(2020, 1, 15),
       ),
       PlayerProfile(
